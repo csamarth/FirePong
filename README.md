@@ -2,10 +2,15 @@
 
 ## ToDo
 
-- [ ] Setup VCS
+- [x] Setup VCS
   - Master branch has base game (empty) (also rules - only stable changes)
   - Every feature will have separate branch
   - Features can only be merged and require at least 2 approvals
+---
+**In case just pulling this project on your local doesn't work, try following the guide given [here](https://docs.godotengine.org/en/stable/getting_started/workflow/project_setup/version_control_systems.html) under *Official Git Plugin***
+
+**And if you're on a windows then do checkout the last paragraph on that page under *Working with Git on Windows* cause line endings are annoying**
+---
 - [ ] Developing personal task
   - [ ] Paris
     - Environment
