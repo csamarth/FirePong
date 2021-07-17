@@ -6,10 +6,14 @@ export(PackedScene) var Game
 # var a = 2
 # var b = "text"
 
+func center_menu():
+	$MarginContainer.margin_left = get_viewport_rect().size.x/2
+	$MarginContainer.margin_top = get_viewport_rect().size.y/2 - $MarginContainer/GridContainer.rect_size.y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	center_menu()
+	get_tree().get_root().connect("size_changed", self ,"center_menu")
 
 
 func start_game():

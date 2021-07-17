@@ -8,11 +8,22 @@ Label/fonts/Pong = null
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Title" type="Label" parent="."]
-margin_left = 261.0
-margin_top = 49.0
-margin_right = 378.0
-margin_bottom = 80.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+margin_right = 63.0
+margin_bottom = 103.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="MarginContainer/GridContainer"]
+margin_right = 59.0
+margin_bottom = 31.0
+size_flags_horizontal = 0
 theme = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Fire Pong
@@ -21,9 +32,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CurrentSelecion" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Start" type="Button" parent="MarginContainer/GridContainer"]
+margin_top = 35.0
+margin_right = 41.0
+margin_bottom = 55.0
+size_flags_horizontal = 0
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="MarginContainer/GridContainer"]
+margin_top = 59.0
+margin_right = 63.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( -293.69, -200.194 )
+size_flags_horizontal = 2
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="MarginContainer/GridContainer"]
+margin_top = 83.0
+margin_right = 35.0
+margin_bottom = 103.0
+size_flags_horizontal = 2
+text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
