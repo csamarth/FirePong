@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/FirePong-Title.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Themes/FirePong-Menu-Item.theme" type="Theme" id=3]
 
-[sub_resource type="GradientTexture" id=1]
-
 [sub_resource type="StyleBoxTexture" id=2]
-texture = SubResource( 1 )
-region_rect = Rect2( 0, 0, 2048, 1 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
