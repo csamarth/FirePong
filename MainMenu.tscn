@@ -1,10 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/FirePong-Title.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Themes/FirePong-Menu-Item.theme" type="Theme" id=3]
-
-[sub_resource type="StyleBoxTexture" id=2]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,7 +14,7 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 margin_right = 106.0
-margin_bottom = 138.0
+margin_bottom = 132.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,7 +37,6 @@ margin_right = 37.0
 margin_bottom = 84.0
 size_flags_horizontal = 0
 theme = ExtResource( 3 )
-custom_styles/normal = SubResource( 2 )
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,20 +44,22 @@ __meta__ = {
 
 [node name="Options" type="Button" parent="MarginContainer/GridContainer"]
 margin_top = 88.0
-margin_right = 63.0
-margin_bottom = 108.0
+margin_right = 58.0
+margin_bottom = 107.0
 rect_pivot_offset = Vector2( -293.69, -200.194 )
 size_flags_horizontal = 2
+theme = ExtResource( 3 )
 text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Exit" type="Button" parent="MarginContainer/GridContainer"]
-margin_top = 112.0
-margin_right = 35.0
-margin_bottom = 132.0
+margin_top = 111.0
+margin_right = 28.0
+margin_bottom = 130.0
 size_flags_horizontal = 2
+theme = ExtResource( 3 )
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
