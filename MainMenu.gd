@@ -18,7 +18,9 @@ func _ready():
 
 func start_game():
 #	Start game
-	pass
+	add_child(Game.instance())
+	$MarginContainer.queue_free()
+	
 
 
 func exit_game():
@@ -29,3 +31,7 @@ func exit_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Start_pressed():
+	start_game()
