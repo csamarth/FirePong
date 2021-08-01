@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/FirePong-Title.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Themes/FirePong-Menu-Item.theme" type="Theme" id=3]
 [ext_resource path="res://src/Levels/LevelTemplate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Ashes.tscn" type="PackedScene" id=5]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -66,6 +67,8 @@ text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Flames" parent="." instance=ExtResource( 5 )]
 
 [connection signal="resized" from="MarginContainer" to="." method="_on_MarginContainer_resized"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Start" to="." method="_on_Start_pressed"]
