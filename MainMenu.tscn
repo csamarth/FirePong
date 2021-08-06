@@ -9,6 +9,7 @@
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
 Game = ExtResource( 4 )
+locale = "hi"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 __meta__ = {
