@@ -1,10 +1,10 @@
 One day two prgrammers were very bored. Let's call them Alfred and Lucy. They had invented a time machine.
 
-Alfred showed her something on his hands.
+Alfred showed Lucy something on his hands.
 
-Lucy said, "The fuck is that?"
+She said, "The fuck is that?"
 
-"How could you not recognize it? It's an X86, 64-bit CPU! It's got 12 cores, hypthreaded at almost 4.5 Gz. This a treasure of the past! A relic carrying so much history! It gave birth to so many innovations--"
+"How could you not recognize it? It's an X86, 64-bit CPU! It's got 12 cores, hyper-threaded at almost 4.5 Gz. This a treasure of the past! A relic carrying so much history! It gave birth to so many innovations--"
 
 Lucy raised her voice, "Ok. Gee, I get it. Relax."
 
@@ -34,7 +34,7 @@ Tim was the name of the time machine which had been integrated into their Comput
 
 "The hell are you doing?" Alfred said.
 
-That vampire smile again, "I'm going to leave a gift to somebody."
+"I'm going to leave a gift to somebody."
 
 Alfred was dumbfounded. He honestly had no idea what she had in mind.
 
@@ -72,16 +72,7 @@ He noticed Lucy was compltely bummed out, "What the hell were you expecting"
 
 "Something more I guess. But it is what it is. Wanna play?"
 
-They spent the entire afternoong playing FirePong.
-
-
-
-
-
-
-
-
-
+They spent the entire afternoon playing FirePong.
 
 
 
