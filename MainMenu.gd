@@ -1,11 +1,9 @@
 extends Node2D
 
 export(PackedScene) var Game
-export(String, "hi", "en", "es") var locale
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(PackedScene) var Options
+enum LANG {HI, EN, ES}
+export(LANG) var locale
 
 func center_menu():
 	$MarginContainer.margin_left = get_viewport_rect().size.x/2
@@ -13,25 +11,33 @@ func center_menu():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	This is for presenting the locale to users in a user-friendly manner such as
-#	"English (United States)".
-#	TranslationServer.set_locale(TranslationServer.get_locale_name("hi_IN"))
+	init_menu()
 
-	TranslationServer.set_locale(locale)
+func start_game():
+	add_child(Game.instance())
+	$MarginContainer.queue_free()
+
+func init_menu():
+	TranslationServer.set_locale(LANG.keys()[LANG.EN])
 	center_menu()
 	get_tree().get_root().connect("size_changed", self ,"center_menu")
+	add_menu_items()
+	add_options()
+	
+func add_menu_items():
 	$MarginContainer/GridContainer/Start.set_text(tr("START"))
 	$MarginContainer/GridContainer/Options.set_text(tr("OPTIONS"))
 	$MarginContainer/GridContainer/Exit.set_text(tr("EXIT"))
+
+func add_options():
+	pass
+#	FIXME: Has to be re-written since the options is a scene of its own.
+#	add_lang_options()
 	
-
-
-func start_game():
-#	Start game
-	add_child(Game.instance())
-	$MarginContainer.queue_free()
-	
-
+func add_lang_options():
+	#FIXME:Does not work properly at the moment
+	for lang in LANG.keys():	
+		$MarginContainer/GridContainer/OptionButton.add_item(lang)
 
 func exit_game():
 #	Exit game
