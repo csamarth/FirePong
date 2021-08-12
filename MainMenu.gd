@@ -40,9 +40,7 @@ func add_lang_options():
 		$MarginContainer/GridContainer/OptionButton.add_item(lang)
 
 func exit_game():
-#	Exit game
-	pass
-
+	get_tree().quit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -51,3 +49,7 @@ func exit_game():
 
 func _on_Start_pressed():
 	start_game()
+
+
+func _on_Exit_pressed():
+	exit_game()

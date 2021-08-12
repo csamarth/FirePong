@@ -72,3 +72,4 @@ __meta__ = {
 
 [connection signal="resized" from="MarginContainer" to="." method="_on_MarginContainer_resized"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Exit" to="." method="_on_Exit_pressed"]
