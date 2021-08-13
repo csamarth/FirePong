@@ -6,8 +6,8 @@ enum LANG {HI, EN, ES}
 export(LANG) var locale
 
 func center_menu():
-	$MarginContainer.margin_left = get_viewport_rect().size.x/2
-	$MarginContainer.margin_top = get_viewport_rect().size.y/2 - $MarginContainer/GridContainer.rect_size.y
+	$MainMenuContainer.margin_left = get_viewport_rect().size.x/2
+	$MainMenuContainer.margin_top = get_viewport_rect().size.y/2 - $MainMenuContainer/MainItems.rect_size.y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 
 func start_game():
 	add_child(Game.instance())
-	$MarginContainer.queue_free()
+	$MainMenuContainer.queue_free()
 
 func init_menu():
 	TranslationServer.set_locale(LANG.keys()[LANG.EN])
@@ -25,9 +25,15 @@ func init_menu():
 	add_options()
 	
 func add_menu_items():
-	$MarginContainer/GridContainer/Start.set_text(tr("START"))
-	$MarginContainer/GridContainer/Options.set_text(tr("OPTIONS"))
-	$MarginContainer/GridContainer/Exit.set_text(tr("EXIT"))
+	$MainMenuContainer/MainItems/Start.set_text(tr("START"))
+	$MainMenuContainer/MainItems/Options.set_text(tr("OPTIONS"))
+	$MainMenuContainer/MainItems/Exit.set_text(tr("EXIT"))
+
+func remove_menu_items():
+	$MainMenuContainer/MainItems/Start.queue_free()
+	$MainMenuContainer/MainItems/Options.queue_free()
+	$MainMenuContainer/MainItems/Exit.queue_free()
+
 
 func add_options():
 	pass
@@ -35,9 +41,10 @@ func add_options():
 #	add_lang_options()
 	
 func add_lang_options():
+	
 	#FIXME:Does not work properly at the moment
 	for lang in LANG.keys():	
-		$MarginContainer/GridContainer/OptionButton.add_item(lang)
+		$MainMenuContainer/MainItems/OptionButton.add_item(lang)
 
 func exit_game():
 	get_tree().quit()
@@ -53,3 +60,8 @@ func _on_Start_pressed():
 
 func _on_Exit_pressed():
 	exit_game()
+
+
+func _on_Options_pressed():
+	remove_menu_items()
+	$MainMenuContainer/MainItems.add_child(Options.instance())

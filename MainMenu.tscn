@@ -1,28 +1,30 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/FirePong-Title.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Themes/FirePong-Menu-Item.theme" type="Theme" id=3]
 [ext_resource path="res://src/Levels/LevelTemplate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Ashes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://OptionsMenu.tscn" type="PackedScene" id=6]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
 Game = ExtResource( 4 )
+Options = ExtResource( 6 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="MainItems" type="GridContainer" parent="MainMenuContainer"]
 margin_right = 106.0
 margin_bottom = 130.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Title" type="Label" parent="MainMenuContainer/MainItems"]
 margin_right = 106.0
 margin_bottom = 61.0
 size_flags_horizontal = 0
@@ -34,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Start" type="Button" parent="MainMenuContainer/MainItems"]
 margin_top = 65.0
 margin_right = 37.0
 margin_bottom = 84.0
@@ -45,7 +47,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Options" type="Button" parent="MainMenuContainer/MainItems"]
 margin_top = 88.0
 margin_right = 58.0
 margin_bottom = 107.0
@@ -57,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Exit" type="Button" parent="MainMenuContainer/MainItems"]
 margin_top = 111.0
 margin_right = 28.0
 margin_bottom = 130.0
@@ -68,8 +70,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Flames" parent="." instance=ExtResource( 5 )]
+[node name="Flames" parent="MainMenuContainer" instance=ExtResource( 5 )]
 
-[connection signal="resized" from="MarginContainer" to="." method="_on_MarginContainer_resized"]
-[connection signal="pressed" from="MarginContainer/GridContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="MarginContainer/GridContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="resized" from="MainMenuContainer" to="." method="_on_MarginContainer_resized"]
+[connection signal="pressed" from="MainMenuContainer/MainItems/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MainItems/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MainItems/Exit" to="." method="_on_Exit_pressed"]

@@ -4,12 +4,21 @@
 [ext_resource path="res://Assets/Styles/Fire-Pong-Menu-Button-Hover.tres" type="StyleBox" id=2]
 [ext_resource path="res://Assets/Styles/Fire-Pong-Menu-Button-Focus.tres" type="StyleBox" id=3]
 
-[node name="OptionsMenu" type="Node"]
+[node name="OptionsMenu" type="GridContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="OptionButton" type="OptionButton" parent="."]
-margin_top = 134.0
-margin_right = 106.0
-margin_bottom = 148.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 14.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+margin_right = 14.0
+margin_bottom = 14.0
 custom_styles/hover = ExtResource( 2 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/normal = ExtResource( 1 )
