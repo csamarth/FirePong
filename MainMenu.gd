@@ -22,29 +22,39 @@ func init_menu():
 	center_menu()
 	get_tree().get_root().connect("size_changed", self ,"center_menu")
 	add_menu_items()
-	add_options()
+	init_options_menu()
+	
+func init_options_menu():
+	var options_menu_instance = Options.instance()
+	options_menu_instance.init_lang_options(LANG.keys())
+	options_menu_instance.visible = false
+	$MainMenuContainer/MainItems.add_child(options_menu_instance)
+	options_menu_instance.connect("back_to_menu", self, "back_to_menu") 
 	
 func add_menu_items():
 	$MainMenuContainer/MainItems/Start.set_text(tr("START"))
 	$MainMenuContainer/MainItems/Options.set_text(tr("OPTIONS"))
 	$MainMenuContainer/MainItems/Exit.set_text(tr("EXIT"))
 
-func remove_menu_items():
-	$MainMenuContainer/MainItems/Start.queue_free()
-	$MainMenuContainer/MainItems/Options.queue_free()
-	$MainMenuContainer/MainItems/Exit.queue_free()
+func hide_menu_items():
+	$MainMenuContainer/MainItems/Start.visible = false
+	$MainMenuContainer/MainItems/Options.visible = false
+	$MainMenuContainer/MainItems/Exit.visible = false
 
+func show_menu_items():
+	$MainMenuContainer/MainItems/Start.visible = true
+	$MainMenuContainer/MainItems/Options.visible = true
+	$MainMenuContainer/MainItems/Exit.visible = true 
 
-func add_options():
-	pass
-#	FIXME: Has to be re-written since the options is a scene of its own.
-#	add_lang_options()
+func back_to_menu():
+	hide_options_menu()
+	show_menu_items()
+
+func hide_options_menu():
+	$MainMenuContainer/MainItems.get_node("OptionsMenu").visible = false
 	
-func add_lang_options():
-	
-	#FIXME:Does not work properly at the moment
-	for lang in LANG.keys():	
-		$MainMenuContainer/MainItems/OptionButton.add_item(lang)
+func show_options_menu():
+	$MainMenuContainer/MainItems.get_node("OptionsMenu").visible = true
 
 func exit_game():
 	get_tree().quit()
@@ -53,15 +63,12 @@ func exit_game():
 #func _process(delta):
 #	pass
 
-
 func _on_Start_pressed():
 	start_game()
-
 
 func _on_Exit_pressed():
 	exit_game()
 
-
 func _on_Options_pressed():
-	remove_menu_items()
-	$MainMenuContainer/MainItems.add_child(Options.instance())
+	hide_menu_items()
+	show_options_menu()

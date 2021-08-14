@@ -1,27 +1,54 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Styles/Fire-Pong-Menu-Button-Normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://Assets/Styles/Fire-Pong-Menu-Button-Hover.tres" type="StyleBox" id=2]
 [ext_resource path="res://Assets/Styles/Fire-Pong-Menu-Button-Focus.tres" type="StyleBox" id=3]
+[ext_resource path="res://OptionsMenu.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Themes/FirePong-Menu-Item.theme" type="Theme" id=5]
 
 [node name="OptionsMenu" type="GridContainer"]
+margin_right = 200.0
+margin_bottom = 64.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 14.0
-margin_bottom = 14.0
+[node name="LanguageContainer" type="HBoxContainer" parent="."]
+margin_right = 105.0
+margin_bottom = 19.0
+
+[node name="LangOptionsLabel" type="Label" parent="LanguageContainer"]
+margin_right = 76.0
+margin_bottom = 19.0
+theme = ExtResource( 5 )
+text = "Language"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
-margin_right = 14.0
-margin_bottom = 14.0
+[node name="LangOptions" type="OptionButton" parent="LanguageContainer"]
+margin_left = 80.0
+margin_right = 105.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource( 5 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="."]
+margin_top = 23.0
+margin_right = 105.0
+margin_bottom = 42.0
+theme = ExtResource( 5 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+text = "Back To Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
