@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var Game
 export(PackedScene) var Options
-enum LANG {HI, EN, ES}
+enum LANG {en, es, hi}
 export(LANG) var locale
 
 func center_menu():
@@ -18,10 +18,10 @@ func start_game():
 	$MainMenuContainer.queue_free()
 
 func init_menu():
-	TranslationServer.set_locale(LANG.keys()[LANG.EN])
+	TranslationServer.set_locale(LANG.keys()[LANG.en])
 	center_menu()
 	get_tree().get_root().connect("size_changed", self ,"center_menu")
-	add_menu_items()
+	update_menu_items()
 	init_options_menu()
 	
 func init_options_menu():
@@ -30,8 +30,9 @@ func init_options_menu():
 	options_menu_instance.visible = false
 	$MainMenuContainer/MainItems.add_child(options_menu_instance)
 	options_menu_instance.connect("back_to_menu", self, "back_to_menu") 
+	options_menu_instance.connect("lang_option_update", self, "update_lang") 
 	
-func add_menu_items():
+func update_menu_items():
 	$MainMenuContainer/MainItems/Start.set_text(tr("START"))
 	$MainMenuContainer/MainItems/Options.set_text(tr("OPTIONS"))
 	$MainMenuContainer/MainItems/Exit.set_text(tr("EXIT"))
@@ -42,6 +43,7 @@ func hide_menu_items():
 	$MainMenuContainer/MainItems/Exit.visible = false
 
 func show_menu_items():
+	update_menu_items()
 	$MainMenuContainer/MainItems/Start.visible = true
 	$MainMenuContainer/MainItems/Options.visible = true
 	$MainMenuContainer/MainItems/Exit.visible = true 
@@ -72,3 +74,7 @@ func _on_Exit_pressed():
 func _on_Options_pressed():
 	hide_menu_items()
 	show_options_menu()
+
+func update_lang(locale):
+	TranslationServer.set_locale(locale )
+	
