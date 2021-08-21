@@ -25,12 +25,13 @@ func create_text_animation(node_path, text, delimeter = " "):
 		print(current_text)
 		animation.track_insert_key(track_index, current_transition, current_text)
 		current_transition = current_transition + 0.5
+		animation.length = animation.length + 0.5 
 	
 	return animation
 	
 func create_animation_player():
 	var player =  AnimationPlayer.new()
-	var animation = create_text_animation("HelloWorld:text", story_text)
+	var animation = create_text_animation("Story:text", story_text)
 	player.add_animation("Story", animation)
 	return player
 	

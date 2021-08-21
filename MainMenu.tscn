@@ -122,6 +122,7 @@ margin_top = 145.921
 margin_right = 268.277
 margin_bottom = 240.921
 theme = SubResource( 2 )
+wrap_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
