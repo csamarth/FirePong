@@ -67,5 +67,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="resized" from="MarginContainer" to="." method="_on_MarginContainer_resized"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/Start" to="." method="_on_Item_hover"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/Start" to="." method="_on_Start_hover"]
 [connection signal="pressed" from="MarginContainer/GridContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/Options" to="." method="_on_Item_hover"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/GridContainer/Exit" to="." method="_on_Item_hover"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Exit" to="." method="_on_Exit_pressed"]

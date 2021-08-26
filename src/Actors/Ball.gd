@@ -15,8 +15,18 @@ func _physics_process(_delta) -> void:
 	vel.x = direction_x * 100
 	vel = move_and_slide(vel, Vector2.UP)
 	if is_on_floor() or is_on_ceiling():
+		$AudioStreamPlayer.play()
 		print("floor");
 		direction_y *= -1
 	if is_on_wall():
+		$AudioStreamPlayer.play()
 		print("wall")
 		direction_x *= -1
+	if(position.x <= 0 || position.x >= 1024):
+		end_game()
+
+
+func end_game():
+	get_node("../TimerLabel").stop_timer()
+	get_node("..").end_game()
+	queue_free()
