@@ -6,3 +6,4 @@ func _physics_process(_delta):
 		Input.get_action_strength("ui_down") -Input.get_action_strength("ui_up") 	#y-axis
 	);
 	_velocity = speed * direction;
+
