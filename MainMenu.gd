@@ -12,35 +12,10 @@ var story_text = "This is the story about FirePong..."
 func center_menu():
 	$MainMenuContainer.margin_left = get_viewport_rect().size.x/2
 	$MainMenuContainer.margin_top = get_viewport_rect().size.y/2 - $MainMenuContainer/MainItems.rect_size.y
-
-func create_text_animation(node_path, text, delimeter = " "):
-	var animation = Animation.new()
-	var track_index = animation.add_track(Animation.TYPE_VALUE)
-	animation.track_set_path(track_index, node_path)
-	var current_transition = 0.0
-	var current_text = ""
-	print("story_text:"+ text)
-	for token in text.split(delimeter):
-		current_text = current_text + token + delimeter
-		print(current_text)
-		animation.track_insert_key(track_index, current_transition, current_text)
-		current_transition = current_transition + 0.5
-		animation.length = animation.length + 0.5 
-	
-	return animation
-	
-func create_animation_player():
-	var player =  AnimationPlayer.new()
-	var animation = create_text_animation("Story:text", story_text)
-	player.add_animation("Story", animation)
-	return player
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_menu()
-	var anim_player = create_animation_player()
-	anim_player.current_animation = "Story"
-	add_child(anim_player)
 
 func start_game():
 	add_child(Game.instance())
