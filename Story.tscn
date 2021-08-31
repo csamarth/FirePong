@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Story.gd" type="Script" id=1]
+[ext_resource path="res://src/Levels/LevelTemplate.tscn" type="PackedScene" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -47,13 +48,14 @@ TextEdit/styles/normal = SubResource( 1 )
 TextEdit/styles/read_only = null
 
 [node name="Story" type="TextEdit"]
-margin_left = 69.2767
-margin_top = 145.921
-margin_right = 268.277
-margin_bottom = 240.921
+margin_left = 3.0
+margin_top = 5.0
+margin_right = 1022.0
+margin_bottom = 593.0
 theme = SubResource( 2 )
 wrap_enabled = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+Game = ExtResource( 2 )

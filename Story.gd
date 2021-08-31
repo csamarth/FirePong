@@ -1,11 +1,8 @@
 extends TextEdit
+export(PackedScene) var Game
 
 func load_story():
-	var story_file = File.new()
-	story_file.open("res://Assets/Story.txt", File.READ)
-
-	var story_content  = story_file.get_as_text()
-
+	var story_content = tr("STORY_BEGIN")
 	return story_content
 
 func create_text_animation(node_path, text, delimeter = " "):
@@ -23,24 +20,24 @@ func create_text_animation(node_path, text, delimeter = " "):
 	
 	return animation
 	
-func create_animation_player():
+func create_animation_player(text_to_animate):
 	var player =  AnimationPlayer.new()
-	var animation = create_text_animation("Story:text", "Hello World")
+	var animation = create_text_animation(".:text", text_to_animate)
 	player.add_animation("Story", animation)
 	return player
 
+func start_game_story(name):
+	get_parent().add_child(Game.instance())
+	queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	var anim_player = create_animation_player()
-#	anim_player.current_animation = "Story"
-	
-	load_story()
-	
-	print()
-#	add_child(anim_player)
-
+	var anim_player = create_animation_player(load_story())	
+	anim_player.connect("animation_finished", self, "start_game_story")
+	anim_player.play("Story")
+	add_child(anim_player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+#	print(anim_player.get_current_animation_length())
+	pass

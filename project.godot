@@ -47,7 +47,7 @@ singletons=[ "res://git_api.gdnlib" ]
 
 [locale]
 
-translations=PoolStringArray( "res://Assets/translations.en.translation", "res://Assets/translations.es.translation", "res://Assets/translations.hi.translation" )
+translations=PoolStringArray( "res://Assets/translations.en.translation", "res://Assets/translations.hi.translation", "res://Assets/translations.es.translation" )
 locale_filter=[ 0, [ "es" ] ]
 
 [physics]

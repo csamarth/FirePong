@@ -2,12 +2,10 @@ extends Node2D
 
 export(PackedScene) var Game
 export(PackedScene) var Options
+export(PackedScene) var Story
+
 enum LANG {en, es, hi}
 export(LANG) var locale
-
-#For now this is a global, will fix it because it really shouldn't be a global.
-#Ideally this should be loaded from a configuration file, maybe
-var story_text = "This is the story about FirePong..."
 
 func center_menu():
 	$MainMenuContainer.margin_left = get_viewport_rect().size.x/2
@@ -18,7 +16,7 @@ func _ready():
 	init_menu()
 
 func start_game():
-	add_child(Game.instance())
+	add_child(Story.instance())
 	$MainMenuContainer.queue_free()
 
 func init_menu():
