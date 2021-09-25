@@ -54,6 +54,11 @@ func back_to_menu():
 	hide_options_menu()
 	show_menu_items()
 
+func update_config():
+	
+	TranslationServer.set_locale(locale )
+	
+
 func hide_options_menu():
 	$MainMenuContainer/MainItems.get_node("OptionsMenu").visible = false
 	
