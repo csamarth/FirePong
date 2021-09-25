@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/Levels/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Themes/FirePong-Title.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Themes/FirePong-Menu-Item.theme" type="Theme" id=3]
 [ext_resource path="res://src/Levels/LevelTemplate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Ashes.tscn" type="PackedScene" id=5]
-[ext_resource path="res://OptionsMenu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Story.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/OptionsMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Levels/Story.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Story.gd" type="Script" id=1]
+[ext_resource path="res://src/Levels/Story.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/LevelTemplate.tscn" type="PackedScene" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
