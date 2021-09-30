@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/OnSelect.wav-b794baf531b67fb9cf382091a1e9cfea.sample"
+
+[deps]
+
+source_file="res://src/Sound/OnSelect.wav"
+dest_files=[ "res://.import/OnSelect.wav-b794baf531b67fb9cf382091a1e9cfea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

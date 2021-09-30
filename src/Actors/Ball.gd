@@ -18,5 +18,6 @@ func _physics_process(_delta) -> void:
 	vel = move_and_slide(vel, Vector2.UP)
 	if is_on_floor() or is_on_ceiling():
 		direction_y *= -1
+		get_node("../../SoundManager").play_music("ballCollide")
 	if is_on_wall():
 		direction_x *= -1
